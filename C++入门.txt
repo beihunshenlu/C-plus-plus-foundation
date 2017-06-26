@@ -1,31 +1,29 @@
-1.	������������̵��ص���ʲô��(��ʾ����װ���̳С���̬��)
-��Encapsulation��Encapsulation means that to combine abstracted data and behaviors(or functions) together to form an organic whole. In other words, encapsulation means to combine data and the functions operating on the data together to form a "class", and the data and the functions are both members of the class.
-	��װ����װ���ǽ��������ݺ���Ϊ(����)���ϣ��γ�һ���ʼĵ����壬Ҳ���ǽ�������������ݵ�Դ�����ϣ��γɡ��ࡱ�����������뺯��
-������ĳ�Ա��
-	Inheritance: Derive properties and characteristics from another class.
-	�̳У��̳о��Ǵ�һ�����е���������һ�����࣬�Ӷ�ʹ�µ������ԭ���������������������
-	Polymorphism: Polymorphism means that a program can deal with multiple types of objects. In C++, this polymorphism falls into
-forced polymorphism, overloading polymorphism, type parameter polymorphism and inclusion polymorphism.
-	��̬����̬���ǳ����ܹ������������͵Ķ��󣬱�������һ������ʱ�İ󶨻���(��̬��)����C++�У���̬��Ϊǿ�ƶ�̬�����ض�̬�����Ͳ�����̬�Ͱ�����̬���֡���̬Ҳ���Զ���Ϊһ�ֽ���ͬ��������Ϊ�͵��������Ǻ��������������
+1.	叙述面向对象编程的特点是什么？(提示：封装、继承、多态。)
+答：Encapsulation：Encapsulation means that to combine abstracted data and behaviors(or functions) together to form an organic whole. In other words, encapsulation means to combine data and the functions operating on the data together to form a "class", and the data and the functions are both members of the class.
+	封装：封装就是将抽象数据和行为(或功能)相结合，形成一个有机的整体，也就是将数据与操作数据的源代码结合，形成“类”，其中数据与函数都是类的成员。
+Inheritance: Derive properties and characteristics from another class.
+	继承：继承就是从一个已有的类派生出一个新类，从而使新的类具有原来类的所有属性与特征。
+Polymorphism: Polymorphism means that a program can deal with multiple types of objects. In C++, this polymorphism falls into forced polymorphism, overloading polymorphism, type parameter polymorphism and inclusion polymorphism.
+	多态：多态就是程序能够处理多种类型的对象，本质上是一种运行时的绑定机制(动态绑定)。在C++中，多态分为强制多态，重载多态，类型参数多态和包含多态四种。多态也可以定义为一种将不同的特殊性为和单个泛化记号相关联的能力。
 
-2.	ʹ��const���峣������ʹ��define���峣����ȣ���ʲô�ŵ㣿
-��(1)const���峣�����������ͣ���define���峣�����������͡����������Զ�ǰ�߽������Ͱ�ȫ��飬���Ժ���ֻ�����ַ��滻��û�а�ȫ��
-�顣(2)const����ĳ����ڳ������й�����ֻ��һ�ݿ�������define����ĳ������ڴ��������ɷݿ�����
-3.	�ô���˵���ڱ�׼C++����ν�����������������͸����ĺ�����ʲô��
-��
-#include<iostream>		//����ͷ�ļ�
-using namespace std;	//ʹ�����ƿռ����ȫ��������ͻ
+2.	使用const定义常量与用使用define定义常量相比，有什么优点？
+答：(1)const定义常量有数据类型，而define定义常量无数据类型。编译器可以对前者进行类型安全检查，而对后者只进行字符替换，没有安全检
+查。(2)const定义的常量在程序运行过程中只有一份拷贝，而define定义的常量在内存中有若干份拷贝。
+3.	用代码说明在标准C++中如何进行输入输出，并解释各语句的含义是什么？
+答：
+#include<iostream>		//导入头文件
+using namespace std;	//使用名称空间避免全局命名冲突
 int main()
 {
 	int a;
-	cin>>a;				//��׼������
-	cout<<a;			//��׼�����������Ļ�������a
+	cin>>a;				//标准输入流
+	cout<<a;			//标准输出流，向屏幕输出变量a
 	reutrn 0;
 }
-4.	C++����ν��о�̬����ת�������Ͳ�����˵����
-��C++�ľ�̬����ת����Ϊ����
-	(1)ʵ��C++���û������ݵ��໥ת����int a=static_cast<int>(7.9);
-	(2)���漰�࣬��ֻ���໥��ϵ�������н���ת������һ�������麯��
+4.	C++中如何进行静态类型转换，解释并举例说明。
+答：C++的静态类型转化分为两类
+	(1)实现C++内置基本数据的相互转化：int a=static_cast<int>(7.9);
+	(2)若涉及类，则只有相互联系的类型中进行转化，不一定包含虚函数，而dynamic_cast必须包含
 class A{};
 class B:public A{};
 class C{};
@@ -34,12 +32,12 @@ int main()
 	A *a=new A;
 	B *b;
 	C *c;
-	b=static_cast<B>(a);//��������B�̳���A
-	c=static_cast<C>(a);//������c��aû��ϵ
+	b=static_cast<B>(a);//不报错，B继承自A
+	c=static_cast<C>(a);//报错，c与a没关系
 	return 0;
 }
-5.	����C�����к������ֵ��õķ�ʽʵ�ֻ��ơ��ص㼰��ʵ�Ρ��βεĸ�ʽ������ô���˵��������ʾ����ַ����ֵ�����ô��ݣ�
-��
+5.	阐述C＋＋中函数三种调用的方式实现机制、特点及其实参、形参的格式，最好用代码说明。（提示：传址、传值、引用传递）
+答：
 void swap(int a,int b){
 	int t;
 	t=a;a=b;b=t;
@@ -55,44 +53,44 @@ void swap(int *a,int *b){
 	t=*a;*a=*b;*b=t;
 }
 swap(&a,&b);
-��ֵ��������󲻻ύ������ַ�봫���ûύ����
-6.	ʲô������������ΪʲôҪʹ������������
-���������������������������һЩ���⺯������������չ�������������յ�������ָʾʱ�����ɷ������������������ڱ���׶�ʹ�ú����Ķ��������������������䣬�����������ʱ�������������Ժ���������������
-����ʹ�������������Ա��⺯�������������Ŀ��������磺ѹջ����ջ�������ֳ���ָ��ֳ����������С����Ƶ��ʹ�õĺ��������齫�䶨��Ϊ����������
+传值出函数体后不会交换，传址与传引用会交换。
+6.	什么是内联函数？为什么要使用内联函数？
+答：内联函数是用来建议编译器对一些特殊函数进行内联扩展。当内联函数收到编译器指示时，即可发生内联：编译器将在编译阶段使用函数的定义体来替代函数调用语句，当函数体过大时，编译器将忽略函数的内联声明。
+　　使用内联函数可以避免函数调用所带来的开销，比如：压栈、弹栈、保存现场与恢复现场，对于体积小并且频繁使用的函数，建议将其定义为内联函数。
 
-7.	ʲô�����ǰ��������ʹ�����ǰ������ʱ��Ҫע��ʲô��
-��ǰ������(Forward��Declaration)��ָ������ʶ��(��ʾ��̵�ʵ�壬���������͡�����������)ʱ��û�и��������Ķ��塣�����ǰ��������ָ��������ʱ��û�и����������塣�����ǰ�������Ͷ���֮�䣬�����������ָ������ã������Դ���Ϊ�����򷵻�ֵ�ĺ���������һ���Դ����ָ�������Ϊ�����򷵻�ֵ�ĺ���(���������Ա����Ϊ��ʱδ������)�����ܽ�������Ϊ����������������ܶ����Դ���Ϊ�����򷵻�ֵ�ĺ����������ô�����������
+7.	什么是类的前向声明？使用类的前向声明时，要注意什么？
+答：前向声明(Forward　Declaration)是指声明标识符(表示编程的实体，如数据类型、变量、函数)时还没有给出完整的定义。而类的前向声明则指在声明类时还没有给出完整定义。在类的前向声明和定义之间，可以声明类的指针或引用，声明以此类为参数或返回值的函数，定义一个以此类的指针或引用为参数或返回值的函数(不适用其成员，因为此时未定义类)；不能将此类作为基类进行派生，不能定义以此类为参数或返回值的函数，不能用此类声明对象。
 
-8.	ʲô����������(Precondition)��ʲô�Ǻ�������(Postcondition)��
-����������(Precondition)����ִ��ĳ�δ�������ǹ淶����֮ǰ����ʼ��Ϊ���������ν�ʣ���������һ��ʱ��ʱ����С��24ʱ����������(Postcondition)����ִ��ĳ�δ������ʽ����֮�����ʼ��Ϊ���������ν�ʡ���������������ֵ�ƽ����������ܾ��н��Ϊ���ֵĺ�������������ƽ���������롣
+8.	什么是先验条件(Precondition)，什么是后置条件(Postcondition)？
+答：先验条件(Precondition)是在执行某段代码或正是规范操作之前必须始终为真的条件或谓词，比如输入一个时间时必须小于24时。后置条件(Postcondition)是在执行某段代码或正式操作之后必须始终为真的条件或谓词。比如计算输入数字的平方根程序可能具有结果为数字的后置条件，且其平方等于输入。
 
-9.	ʲô�����ƿռ�(namespace)��������Ҫ������ʲô��
-�������ռ���������֯���ֶ����һ����ţ��Ա����ͨ��������������Щ��������ʾһ����ʶ���Ŀɼ���Χ��һ����ʶ�����ڶԸ������ռ䶨�壬���ڲ�ͬ�����ռ��еĺ����ǻ�����ɵġ����������µ������ռ䶨����κα�ʶ������������֪�ı�ʶ��������ͻ��
+9.	什么是名称空间(namespace)，它的主要作用是什么？
+答：命名空间是用于组织各种对象的一组符号，以便可以通过名称来引用这些对象。它表示一个标识符的可见范围。一个标识符可在对各命名空间定义，它在不同命名空间中的含义是互不相干的。这样，在新的命名空间定义的任何标识符都不会与已知的标识符发生冲突。
 
-10.	ʲô������(Overloading)�����Ͳ�����˵�����ܷ���ݷ���ֵ��ͬ���Ժ����������أ�Ϊʲô��
-�������Ǵ������в�ͬ��ʵ�ֵ�������ͬ�Ķ������������������void��T(char��a)��void��T��(int��a)����������ͨ�����ݵĲ�����ͬ���ò�ͬ�ĺ�����
-����ͨ������ֵ��ͬ���к������أ�����float��max(int��a,int��b)��int��max(int��a,int��b),������max(1,2)ʱ���޷�ȷ�������Ǹ�������
+10.	什么是重载(Overloading)，解释并举例说明？能否根据返回值不同，对函数进行重载，为什么？
+答：重载是创建具有不同的实现但名称相同的多个函数的能力。例如void　T(char　a)与void　T　(int　a)，编译器会通过传递的参数不同调用不同的函数。
+不能通过返回值不同进行函数重载，例如float　max(int　a,int　b)与int　max(int　a,int　b),当调用max(1,2)时，无法确定调用那个函数。
 
-11.	�ܽ�һ�¹ؼ���const���÷�?
-��(1)const������ͨ������������ת���ɳ�������ʹ֮���ɸı�
-	(2)const����ָ�룬�ֱ�ɱ�ʾΪָ�뱾��Ϊ�������ɱ��ָ��ָ������ݲ��ɱ�����߶����ɱ䡣
-	(3)const���κ�����������ʾ�ں������в����޸Ĳ���ֵ
-	(4)const���ζ���/����ָ��/�������ã�const���ε������ֻ�ܵ���const���εĳ�Ա������
-	(5)const���γ�Ա��������ʾ��Ա���������ɱ��޸ģ�ֻ���ڳ�ʼ���б���ֵ��
-	(6)const���γ�Ա�������ó�Ա���������޸������˸��const��Ա����
+11.	总结一下关键字const的用法?
+答：(1)const修饰普通变量，将变量转换成常数对象使之不可改变
+	(2)const修饰指针，分别可表示为指针本身为常量不可变或指针指向的内容不可变或两者都不可变。
+	(3)const修饰函数参数，表示在函数体中不可修改参数值
+	(4)const修饰对象/对象指针/对象引用，const修饰的类对象只能调用const修饰的成员函数。
+	(5)const修饰成员变量，表示成员常量，不可被修改，只可在初始化列表赋值。
+	(6)const修饰成员函数，该成员函数不能修改类中非const成员函数
 
-	12.	������new��������ʲô��������뵥���ռ䣿������붯̬���飿��new����һ����Ķ���ʱ���ᷢ����Щ��������Ҫʱ�����ô���˵����
-��new�����ã��ڶ��ж�̬�����ڴ档���뵥���ռ䣺int��*p=new��int;�����붯̬���飺int��*p=new��int[N];��NΪ���ͳ������Ѹ�ֵ�����α�����������������Ϊȫ�֣�����Ҫ�ֶ��ͷſռ䣬�ڶ��ж�̬�����ڴ棬���ù��캯����
+12.操作符new的作用是什么？如何申请单个空间？如何申请动态数组？用new创建一个类的对象时，会发生哪些操作？必要时，请用代码说明。
+答：new的作用：在堆中动态分配内存。申请单个空间：int　*p=new　int;　申请动态数组：int　*p=new　int[N];　N为整型常量或已赋值的整形变量。对象的作用域变为全局，且需要手动释放空间，在堆中动态分配内存，调用构造函数。
 
-13.��������delete��������ʲô�����ɾ��������new����Ŀռ䣿���ɾ������Ķ�̬���飿��deleteɾ��һ����Ķ���ʱ���ᷢ����Щ��������Ҫʱ�����ô���˵����
-��delete���ã��ͷ���new��̬������ڴ�ռ䡣ɾ��������delete��p;��ɾ�����飺delete��[]p;���ͷ��ڶ��з�����ڴ棬��������������
+13.　操作符delete的作用是什么？如何删除单个用new申请的空间？如何删除申请的动态数组？用delete删除一个类的对象时，会发生哪些操作？必要时，请用代码说明。
+答：delete作用：释放由new动态分配的内存空间。删除单个：delete　p;　删除数组：delete　[]p;　释放在堆中分配的内存，调用析构函数。
 
-14.	ʲô������ָ��(�ֳ�ΪҰָ�룬Dangling Pointers)����Σ����ʲô��(google)
-��Ұָ��ʱ��ָ���κκϷ������ָ�롣��Ұָ��ָ��ĳЩ��Ҫ���ݻ��������򣬵���ָ������ݽ����޸�ʱ���ͻ�����ش���ʧ(����ø�ָ��д���ڴ棬���������ݽṹ�Ϳ�����)��
+14.	什么是悬挂指针(又称为野指针，Dangling Pointers)，其危害是什么？(google)
+答：野指针是不指向任何合法对象的指针。当野指针指向某些重要数据或其它程序，当对指针的内容进行修改时，就会造成重大损失(如果用该指针写入内存，其它的数据结构就可能损坏)。
 
-15.	ʲô���ࣿͨ��һ�����а���ʲô�������ݣ�����һ������﷨��ʲô���Ծ���˵����
-�����������������Ʒ����Ĺؼ����������������Ķ���ͬ�����Ժͷ�����
-������������ı����ͺ�������Ϊ��Ա����ĳ�Ա�������ݳ�Ա�뺯����Ա�����ݳ�Ա������������ԣ�������Ա�����������Ϊ��
+15.	什么是类？通常一个类中包含什么样的内容？定义一个类的语法是什么，试举例说明。
+答：类是面向对象中设计方法的关键，描述了所创建的对象共同的属性和方法。
+类中声明或定义的变量和函数被称为成员，类的成员包括数据成员与函数成员，数据成员描述问题的属性，函数成员描述问题的行为。
 Class people
 {
 Public:
@@ -104,80 +102,80 @@ Private:
 	Int age;
 };
 
-16.	ʲô�Ƕ���ʲô���ࣿ�������Ĺ�ϵ��ʲô��
-�𣺶���Ӣ�object����һ���ڴ��ַ������ӵ��ֵ�������ַ�����б�ʶ��ָ��˴������������һ��������һ�����ݽṹ������һ��������
-���������������Ʒ����Ĺؼ����������������Ķ���ͬ�����Ժͷ�����
-��Ķ��������һ��ȷ��ʵ�塣
+16.	什么是对象？什么是类？类与对象的关系是什么？
+答：对象（英语：object）是一个内存地址，其中拥有值，这个地址可能有标识符指向此处。对象可以是一个变量，一个数据结构，或是一个函数。
+类是面向对象中设计方法的关键，描述了所创建的对象共同的属性和方法。
+类的对象是类的一个确定实体。
 
-17.	���еĳ�Ա������public/protected/private�ֱ�������Σ������ֳ�Ա��ʲô������ǿ��Ա����ʵģ�
-��private��ֻ����1.�����еĺ�����2.����Ԫ�������ʡ�
-���ܱ��κ��������ʣ�����Ķ���Ҳ���ܷ��ʡ�
-protected�����Ա�1.�����еĺ�����2.����ĺ������Լ�3.����Ԫ�������ʡ�
-�����ܱ�����Ķ�����ʡ�
-public�����Ա�1.�����еĺ�����2.����ĺ�����3.����Ԫ�������ʣ�Ҳ������4.����Ķ������ 5.����ǳ�Ա����
+17.	类中的成员可以用public/protected/private分别进行修饰，这三种成员在什么情况下是可以被访问的？
+答：private：只能由1.该类中的函数、2.其友元函数访问。
+不能被任何其他访问，该类的对象也不能访问。
+protected：可以被1.该类中的函数、2.子类的函数、以及3.其友元函数访问。
+但不能被该类的对象访问。
+public：可以被1.该类中的函数、2.子类的函数、3.其友元函数访问，也可以由4.该类的对象访问 5.任意非成员函数
 
-18.	ʲô�Ƿ�װ����������ʲô��(google)
-�𣺷�װ��Ӣ�Encapsulation����ָ��һ�ֽ������Ժ����ӿڵ�ʵ��ϸ�ڲ��ְ�װ�����������ķ�����ͬʱ����Ҳ��һ�ַ�ֹ�����öˣ�ȥ���ʶ����ڲ�ʵ��ϸ�ڵ��ֶΣ�����ֶ����ɱ�����Ա������ṩ�ġ�
-(1)�����ԣ�
-����װ��Ķ������ⲿ�������޷�ֱ�ӷ��ʶ�����ڲ�ʵ��ϸ�ڣ��ڲ�ʵ��ϸ�ڵĵĸĶ�����Ӱ�쵽�ⲿ����ķ���ԭ�����Ǹ����Ե����֣�ͬʱҲ��ʵ�ָ��ھۣ�����ϵ��������˼��֮һ��
-(2)�ɸ����ԣ�
-����װ��Ķ�����Ա��ⲿ���������ʣ�������Ϊÿ���ⲿ����ȥָ����ͬ�ķ������
-(3)�ɶ��ԣ�
-����װ��Ķ�������ƣ��磺�����������������������������ǡ������ô�����ڲ��������ʵ��ϸ�ڵ�ǰ���£��˽�ö��������
+18.	什么是封装？其作用是什么？(google)
+答：封装（英语：Encapsulation）是指，一种将抽象性函数接口的实现细节部分包装、隐藏起来的方法。同时，它也是一种防止外界调用端，去访问对象内部实现细节的手段，这个手段是由编程语言本身来提供的。
+(1)隔离性：
+被封装后的对象其外部对象是无法直接访问对象的内部实现细节，内部实现细节的的改动不会影响到外部对象的访问原则，这是隔离性的体现，同时也是实现高内聚，低耦合的最根本的思想之一；
+(2)可复用性：
+被封装后的对象可以被外部多个对象访问，而无需为每个外部对象去指定不同的服务对象；
+(3)可读性：
+被封装后的对象的名称（如：程序集名，类名，方法名）如果命名恰当，那么就能在不看里面的实现细节的前提下，了解该对象的作用
 
-19.	ʲô�ǹ��캯�������캯���з���ֵ�𣿹��캯��������������캯������������ʲô��ȱʡ���캯��(default constructor)��
-�𣺹��캯����һ�ֿɳ�ʼ�������ʵ���ĳ�Ա������û�з���ֵ�����캯���ĺ�������������ͬ���������ء�ȱʡ���캯���Ƕ�����Ҫ�������ɵ��õĹ��캯������������û����ʽ���幹�캯��������������Զ�Ϊ������һ��ȱʡ�汾���캯����
+19.	什么是构造函数？构造函数有返回值吗？构造函数如何命名？构造函数可以重载吗？什么是缺省构造函数(default constructor)？
+答：构造函数是一种可初始化其类的实例的成员函数。没有返回值。构造函数的函数名与类名相同，可以重载。缺省构造函数是对象不需要参数即可调用的构造函数，若程序中没有显式定义构造函数，则编译器会自动为类生成一个缺省版本构造函数。
 
-20.���캯����������ʲô��ʲôʱ��ᱻ���ã����캯����ִ��˳����ʲô������������Ĺ��캯�����౾������������������ݳ�Ա�Ĺ��캯������
-�𣺹��캯���Ƕ����еĳ�Ա���г�ʼ���ĳ�Ա�����������󱻷����ڴ�ʱ�Զ��������еĹ��캯������ִ������̳еĸ���Ĺ��캯����Ȼ�������ִ����ͨ�̳еĸ���Ĺ��캯����Ȼ���ն����˳��ִ�����ݳ�Ա�ĳ�ʼ��������������Ĺ��캯���ĵ��á�����������֮��ȫ�෴�����ɾ���
+20.构造函数的作用是什么？什么时候会被调用？构造函数的执行顺序是什么（父类与子类的构造函数、类本身与其类型是类的数据成员的构造函数）？
+答：构造函数是对类中的成员进行初始化的成员函数。当对象被分配内存时自动调用类中的构造函数。先执行虚拟继承的父类的构造函数，然后由参数初始化列表从左到右执行普通继承的父类的构造函数，然后按照定义的顺序执行数据成员的初始化，最后是自身的构造函数的调用。析构函数与之完全相反，互成镜像。
 
-21.	ʲô����������(Class scope)���ļ�������(file scope)������������function scope����
-�������ж���ĳ�Ա�����Լ���Ա������������������
-�ļ�������file��scope���Ǵ���������֮��ֱ���ñ��뵥Ԫ����֮������̬ȫ�ֱ���������ȫ�ֺ�����const�޶���ȫ�ֱ����ȵ����ֵ��������Ϊ���͵��ļ�������
-�������������ж���ı����������βκͺ������ж���ľֲ��������������ں������ڳ�Ϊ����������
+21.	什么是类作用域(Class scope)、文件作用域(file scope)、函数作用域（function scope）？
+答：在类中定义的成员变量以及成员函数，具有类作用域。
+文件作用域（file　scope）是从名字声明之处直至该编译单元结束之处。静态全局变量、内联全局函数、const限定的全局变量等的名字的作用域均为典型的文件作用域。
+函数作用域函数中定义的变量，包括形参和函数体中定义的局部变量，作用域都在函数体内称为函数作用域。
 
-22.	Ϊʲô�������캯����copy constructor���Ĳ��������ǰ����ô���(by reference)�������ǰ�ֵ����(by value)�� 
-��������ֵ���ݣ���ÿ�δ�ֵʱ�����ٴζԾֲ�ֵ���ÿ������캯������������޵ݹ鵼��ջ���������C++�������������캯����ֵ���ݡ�
+22.	为什么拷贝构造函数（copy constructor）的参数必须是按引用传递(by reference)而不能是按值传递(by value)？ 
+答：若按传值传递，则每次传值时都会再次对局部形参值调用拷贝构造函数，结果是无限递归导致栈溢出，所以C++不允许拷贝构造函数按值传递。
 
-23.	�������캯��(���ƹ��캯��)��������ʲô��ʲô��ǳ������ʲô�������(google)
-�𣺿������캯�����������������棺1.ͨ��ʹ����һ��ͬ���͵Ķ�������ʼ���´����Ķ���2.���ƶ��������Ϊ�������ݸ�������3.���ƶ��󣬲��Ӻ��������������
-	����������ָԴ�����뿽������������������κ�һ������ĸĶ������������һ���������Ӱ�졣
-	ǳ������ǳ������ָԴ�����뿽��������һ��ʵ�壬���������õı�����ͬ�����Ʋ�ͬ����
+23.	拷贝构造函数(复制构造函数)的作用是什么？什么是浅拷贝？什么是深拷贝？(google)
+答：拷贝构造函数用于以下三个方面：1.通过使用另一个同类型的对象来初始化新创建的对象。2.复制对象把它作为参数传递给函数。3.复制对象，并从函数返回这个对象。
+	深拷贝：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。
+	浅拷贝：浅拷贝是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同（名称不同）。
 
-	24.	ȫ�ֶ���(Global scope objects)�Ĺ��캯�������������ֱ���ʲôʱ�򱻵��õģ��Զ��ֲ�����(Automatic local objects)�Ĺ��캯�������������ֱ���ʲôʱ�򱻵��õģ���̬�ֲ�����(static local objects)�Ĺ��캯�������������ֱ���ʲôʱ�򱻵��õģ�
-��ȫ�ֶ���Ĺ��캯����ȫ�ֱ�����������ʱ����ã���������������������
-	�Զ��ֲ��������캯�����ڳ����ִ�е��ﶨ����������λ�õ�ʱ����õģ�����Ӧ�������������ڳ����뿪��������������ʱ���õġ�
-	��̬�ֲ����󣺾�̬�ֲ�����Ĺ��캯��ֻ����һ�Σ���ִ���״ε��ﶨ����������λ��ʱ����Ӧ��������������main��ֹ��������exit����ʱ���õ�
+	24.	全局对象(Global scope objects)的构造函数、析构函数分别是什么时候被调用的？自动局部对象(Automatic local objects)的构造函数、析构函数分别是什么时候被调用的？静态局部对象(static local objects)的构造函数、析构函数分别是什么时候被调用的？
+答：全局对象的构造函数在全局变量被创建的时候调用，程序结束后调用析构函数
+	自动局部变量构造函数是在程序的执行到达定义这个对象的位置的时候调用的，而对应的析构函数是在程序离开这个对象的作用域时调用的。
+	静态局部对象：静态局部对象的构造函数只调用一次，即执行首次到达定义这个对象的位置时。对应的析构函数是在main终止或程序调用exit函数时调用的
 
 	
-25.	ʲô�ǳ�ʼ���б�(Initialization Sections)������������ʲô������ʾ��һ�����ݳ�Ա�ĳ�ʼ��������Ա�ĳ�ʼ���������Ա��ѡ������ѡ�񡢸��๹�캯����ѡ�ȣ���
-�𣺳�ʼ���б������ڹ��캯��ִ��ǰ�������Զ�������ݳ�Ա���г�ʼ���Ĳ����������Ǳ���ͨ�ĸ�ֵ��������Ч�ʣ��������ͽ��г�ʼ��ʱ��ֻ���ÿ������캯�������Լ���һ��Ĭ�Ϲ��캯����ִ�С�
+25.	什么是初始化列表(Initialization Sections)？它的作用是什么？（提示：一般数据成员的初始化、常成员的初始化，对象成员构选函数的选择、父类构造函数的选等）。
+答：初始化列表就是在构造函数执行前，用来对对象的数据成员进行初始化的操作。作用是比普通的赋值操作更有效率，对类类型进行初始化时，只调用拷贝构造函数，可以减少一次默认构造函数的执行。
 
-26.	ʲô�ǳ�����������(ADT)���������������ʲô���������Ƿ��ʵ������(google)
-�𣺳������������Ǿ���������Ϊ���ض��������ݽṹ����ѧģ�ͣ����߾������������һ�ֻ���ֳ���������Ե��������͡�
-������������������������������з���������еó��ĳ������Ƕ�һϵ�п���ȥ��ͬ�����Ǳ�������ͬ�ľ������ĳ���
-������ֻ������������ʵ������
+26.	什么是抽象数据类型(ADT)？抽象类的作用是什么？抽象类是否可实例化？(google)
+答：抽象数据类型是具有类似行为的特定类别的数据结构的数学模型；或者具有类似语义的一种或多种程序设计语言的数据类型。
+抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。
+抽象类只可派生，不可实例化。
 
-27.	ʲô��thisָ�룬��������ʲô��
-��thisָ��ʱָ��ǰ�����ָ�롣ͨ��thisָ����Է��ʵ�ǰ��������г�Ա��
+27.	什么是this指针，其作用是什么？
+答：this指针时指向当前对象的指针。通过this指针可以访问当前对象的所有成员。
 
-28.	ʲô����Ԫ(friend)������ΪʲôҪʹ����Ա������
-������������������У���Ԫ������friend��function����һ��ָ���ࣨclass���ġ����ѡ����ú������������ʸ�����private��protected��public�����ݳ�Ա����ͨ�ĺ��������ܷ�����Щ���ݣ�Ȼ������һ��������Ϊһ�������Ԫ����������������Щ���ݡ�
-��ĳЩ����£�Ϊ�������Ա�ĺ����򵥶����е����к��������Ա����ķ���Ȩ������㡣
+28.	什么是友元(friend)函数？为什么要使用友员函数？
+答：在面向对象程序设计中，友元函数（friend　function）是一个指定类（class）的“朋友”，该函数被允许访问该类中private、protected、public的数据成员。普通的函数并不能访问这些数据，然而宣告一个函数成为一个类的友元函数则被允许访问这些数据。
+在某些情况下，为不是类成员的函数或单独类中的所有函数授予成员级别的访问权会更方便。
 
-29.	��η�ֹһ��ͷ�ļ��ڱ౻��ΰ���������˵����
-��ʹ���������룬������ͷ�ļ�д��������ʽ
+29.	如何防止一个头文件在编被多次包含？举例说明。
+答：使用条件编译，将所有头文件写成如下形式
 #ifndef _HEADERNAME_H
 #define _HEADERNAME_H
 
-...//(ͷ�ļ�����)
+...//(头文件内容)
 
 #endif
-��ͷ�ļ���һ�α�����ʱ��������������������_HEADERNAME_H������Ϊ1�����ͷ�ļ����ٴΰ�����ͨ���������룬�������ݱ����ԡ�
+当头文件第一次被包含时，它被正常处理，符号_HEADERNAME_H被定义为1。如果头文件被再次包含，通过条件编译，它的内容被忽略。
 
-30.ʲô����������أ�ΪʲôҪʹ����������أ���ν�����������أ�����˵����
-����������صķ����Ƕ���һ������������ĺ���������Ҫִ�б����ص������ʱ��ϵͳ���Զ����øú�������ʵ����Ӧ�����㡣���������ʵ�����Ǻ��������ء�
-Ϊ��ʵ����Ķ�̬�ԡ�
+30.什么是运算符重载？为什么要使用运算符重载？如何进行运算符重载，举例说明。
+答：运算符重载的方法是定义一个重载运算符的函数，在需要执行被重载的运算符时，系统就自动调用该函数，以实现相应的运算。运算符重载实质上是函数的重载。
+为了实现类的多态性。
 class Complex
 {
 public:
@@ -199,27 +197,28 @@ int main()
 	return 0;
 }
 
-31.Ϊʲô����Ϊȫ�ֺ����������ͨ��Ҫ������Ϊ��Ա�������������һ���������ɾ���˵����
-������Ϊȫ�ֺ����������ʱ�����������������Ӧ���㣬������Ϊ��Ա�����������ʱ���õĶ���������������������Ӧ���㣬��Ϊ��Ŀ�������������Ϊ��Ա�����޲����������ö���������㡣
+31.为什么重载为全局函数的运算符通常要比重载为成员函数的运算符多一个参数？可举例说明。
+答：重载为全局函数的运算符时参数进行运算符的相应运算，而重载为成员函数的运算符时调用的对象与参数进行运算符的相应运算，若为单目运算符，则重载为成员函数无参数，仅调用对象参与运算。
 
-32.ʲô���������������������з���ֵ�������������������������������������
-��������������ĳ�Ա��������������������ڽ���ʱ�����ᱻ�Զ��������У���ղ��ͷŶ�����ǰ��������ռ�õ��ڴ���Դ��
-��������û�з���ֵ
-"~"���������������������
+32.什么是析构函数？析构函数有返回值吗？析构函数如何命名？析构函数可以重载吗？
+答：析构函数是类的成员函数，当对象的生命周期结束时，他会被自动调用运行，清空并释放对象先前创建或是占用的内存资源。
+析构函数没有返回值
+"~"加上类的名，不可以重载
 
-33.����������������ʲô��ʲôʱ��ᱻ���ã�Ϊʲô��������ͨ�����麯����(google)
-����ղ��ͷŶ�����ǰ��������ռ�õ��ڴ���Դ��
-	��������������ڽ���ʱ��
-��ʵ�ֶ�̬ʱ�����û�����������࣬������ʱ��ֹֻ����������������������״��������
+33.析构函数的作用是什么？什么时候会被调用？为什么析构函数通常是虚函数？(google)
+答：清空并释放对象先前创建或是占用的内存资源。
+	当对象的生命周期结束时。
+在实现多态时，当用基类操作派生类，在析构时防止只析构基类而不析构派生类的状况发生。
 
-34.	Ϊʲô��һ�����еľ�̬��Ա������static member function���в���ʹ��thisָ�룿
-����C++�У���̬��Ա������������Ķ�����ĳ�����󣬾�̬��Ա����ֻ�洢һ�ݹ����ж����á����������ж����ж����Թ����������Բ�����ĳһ������ʹ��thisָ��ָ��̬��Ա������
+34.	为什么在一个类中的静态成员函数（static member function）中不能使用this指针？
+答：在C++中，静态成员是属于整个类的而不是某个对象，静态成员变量只存储一份供所有对象共用。所以在所有对象中都可以共享它。所以不允许某一个对象使用this指针指向静态成员函数。
 
-35.���Ҫ��дһ�γ��򣬸�����A��������ʵ���ĸ�������������д����Ĵ���˼·��
-��
+35.如果要编写一段程序，跟踪类A所创建的实例的个数，请叙述编写程序的大体思路。
+答：
 class A{
 public:
     A(){i++;};
+	~A(){i--;};
     int get(){return i;};
 private:
     static int i;
@@ -228,41 +227,45 @@ private:
 int A::i(0);
 
 int main(){
-    C1 c;
-    C1 b;
-    C1 e;
+    A c;
+    A b;
+    A e;
+    cout<<c.get()<<endl;
+    A *p=new A;
+    cout<<c.get()<<endl;
+    delete p;
     cout<<c.get()<<endl;
     return 0;
 }
-36.	ʲô��C++�е�������(The Big Three)��(google)
-�������������������캯����operator=��
+36.	什么是C++中的三大函数(The Big Three)？(google)
+答：析构函数，拷贝构造函数，operator=。
 
-37.ʲô��UML����λ�UML�е���ͼ��ʲô��������֮��������ϵ��������ϵ��������ϵ���Ծ���˵����������֮��Ĺ�ϵ�������ֹ�ϵ��κ�UMLͼ��ʾ��
-��UML�Ǵ����Ե��������Ľ�ģ���ԣ����ָ����÷��ű�ʾ������֮��Ĺ�ϵ��������ʾ��
-����������Զ����Ķ��󣬵�һ������������һ�������ʵ��������������һ������ķ���ʱ������������֮����Ҫ����Ϊ������ϵ��
-����������Զ����Ķ��󣬵�һ�������ʵ������һ�������һЩ�ض�ʵ�����ڹ̶��Ķ�Ӧ��ϵʱ������������֮��Ϊ������ϵ��
-��һ��������������һ������������ڣ������ߴ��ڰ�����ϵ��
+37.什么是UML？如何画UML中的类图？什么是类与类之间依赖关系、关联关系、包含关系？试举例说明这三种类之间的关系。这三种关系如何和UML图表示？
+答：UML是代表性的面向对象的建模语言，各种概念用符号表示，概念之间的关系用线来表示。
+对于两个相对独立的对象，当一个对象负责构造另一个对象的实例，或者依赖另一个对象的服务时，这两个对象之间主要体现为依赖关系。
+对于两个相对独立的对象，当一个对象的实例与另一个对象的一些特定实例存在固定的对应关系时，这两个对象之间为关联关系。
+当一个对象不能脱离另一个对象独立存在，则两者存在包含关系。
 
-38.������������֮��Ĺ�ϵ���ļ��֣�����ʲô���������ʵ��Ϊ�̳й�ϵ��(google)
-�𣺼̳й�ϵ��ʵ�ֹ�ϵ��������ϵ��������ϵ���ۺϹ�ϵ����Ϲ�ϵ��
-���й�ͬ���Ե����������ʵ�ּ̳й�ϵ
-39.�����Ա�е�public��protected��private��Ա����Щ���������ǿ��Է��ʵģ��ڹ��м̳С�˽�м̳С��ܱ����̳����ּ̳з�ʽ�£������Ա�е�public��protected��private��Ա���̳е��������ɷ����Էֱ���ʲô��
-��public��protected�ɷ��ʣ�private���ɷ���
-	�����Ա�����������ⲿ�ܼ��ȣ�
-	public�̳в��ı����Ȩ��
-	protected�̳г��˻�����private��Ա�ķ���Ȩ�޲��䣬���඼���protected
-	private�̳�ʱ����Ȩ�޶���private���ɷ���
-	�����Ա�����������ڲ��ܼ���
-	�̳з�ʽ����Ӱ������Ա���������е��ܼ��ȡ�
+38.常见的类与类之间的关系有哪几种？两个什么样的类可以实现为继承关系？(google)
+答：继承关系，实现关系，依赖关系，关联关系，聚合关系，组合关系。
+具有共同属性的两个类可以实现继承关系
+39.父类成员中的public、protected、private成员，哪些在子类中是可以访问的？在公有继承、私有继承、受保护继承三种继承方式下，父类成员中的public、protected、private成员被继承到子类后，其可访问性分别是什么？
+答：public、protected可访问，private不可访问
+	基类成员在派生类中外部能见度：
+	public继承不改变访问权限
+	protected继承除了基类是private成员的访问权限不变，其余都变成protected
+	private继承时访问权限都是private不可访问
+	基类成员在派生类中内部能见度
+	继承方式不会影响基类成员在派生类中的能见度。
 
-40.	���ؼ̳л����ʲô���⣿��C++������ν���ģ�
-�𣺶��ؼ̳л�ʹ��������ܺ������ȵĶ�ֿ�����
-������̳У�ʹ��������ֻ����һ�����ȵĿ����������ù���ʹ����һ������̳ж�����
+40.	多重继承会带来什么问题？在C++中是如何解决的？
+答：多重继承会使孙子类可能含有祖先的多分拷贝。
+采用虚继承，使孙子类中只含有一份祖先的拷贝，而不用关心使从哪一个父类继承而来。
 
-41.���ں������ã�ʲô��ǰ�ڰ�(Early��Binding���ֳ�Ϊ��̬����)��ʲô�ǵĺ��ڰ�(Late��Binding���ֳ�Ϊ��̬����)�����غ����Ǻ��ڰ����������Ϊʲô������˵����
-�𣺾�̬������ָ�ڳ���������ӽ׶�(����ִ��ǰ)�������ࡣ
-	��̬������ָ�ڳ�������ʱ���е����ࡣ
-	����
+41.对于函数调用，什么是前期绑定(Early　Binding，又称为静态联编)？什么是的后期绑定(Late　Binding，又称为动态联编)？重载函数是后期绑定吗，如果不是为什么？举例说明。
+答：静态联编是指在程序编译连接阶段(程序执行前)进行联编。
+	动态联编是指在程序运行时进行的联编。
+	不是
 void swap(int a,int b){
 	int t;
 	t=a;a=b;b=t;
@@ -279,80 +282,81 @@ void swap(int *a,int *b){
 swap(a=1,b=2);
 swap(a=1,b=2);
 swap(&a,&b);
-������ͨ�������Ĳ�ͬ�ڱ������ӽ׶ξͻ������Ӧ�İ󶨡�
+编译器通过参数的不同在编译连接阶段就会进行相应的绑定。
 
-42.Ҫ��һ���������ñ��ֳ���̬����������������Щ������
-��(1)�̳еĴ��ڣ��̳��Ƕ�̬�Ļ�����û�м̳о�û�ж�̬����
-    (2)������д����ķ�������̬�µ���������д��ķ�������
-    (3)�������ñ���ָ������������ൽ���������ת����
+42.要让一个函数调用表现出多态特征，必须满足哪些条件？
+答：(1)继承的存在（继承是多态的基础，没有继承就没有多态）。
+    (2)子类重写父类的方法（多态下调用子类重写后的方法）。
+    (3)父类引用变量指向子类对象（子类到父类的类型转换）
 
-43.	�����麯����̬�󶨵�ʵ��ԭ����
-�𣺵�����ʵ���麯���������ж��麯����дʱ�����Ը���ָ����丸��Ŀռ䣬��ָ��ָ����ķ��������Ը���ָ�����������ڴ棬��ָ��ָ������ķ�����
+43.	简述虚函数动态绑定的实现原理。
+答：当父类实现虚函数，子类中对虚函数重写时，若对父类指针分配父类的空间，则指针指向父类的方法，若对父类指针分配子类的内存，则指针指向子类的方法。
 
-44.ʲô������(hiding)������(overriding)������(overloading)���Ա����ǵ���ͬ��C++����Ϊ������˵����
-��
+44.什么是隐藏(hiding)、覆盖(overriding)、重载(overloading)？对比它们的异同？C++代码为例进行说明。
+答：
 class CB{
 public:
- ����void f(int)
- ����{
- ����������cout << "CB::f(int)" << endl;
-���� }
+ 　　void f(int)
+ 　　{
+ 　　　　　cout << "CB::f(int)" << endl;
+　　 }
 
 };
 class CD : public CB{
 public:
-����void f(int)
- �� {
-  ������cout << "CD::f(int,int)" << endl;
+　　void f(int)
+ 　 {
+  　　　cout << "CD::f(int,int)" << endl;
 	}
 };
-��ʱ����f����������f�������أ�ֱ�ӵ���f����ʱ�ǵ��õ����ֻ࣬�м����������޶���ʱ�ŵ��ø���
+此时子类f函数将父类f函数隐藏，由指针的类型进行调用相应的函数
 class CB{
 public:
- ����virtual void f(int)
- ����{
- ����������cout << "CB::f(int)" << endl;
-���� }
+ 　　virtual void f(int)
+ 　　{
+ 　　　　　cout << "CB::f(int)" << endl;
+　　 }
 
 };
 class CD : public CB{
 public:
-����void f(int)
- �� {
-  ������cout << "CD::f(int,int)" << endl;
+　　void f(int)
+ 　 {
+  　　　cout << "CD::f(int,int)" << endl;
 	}
 };
-��ʱ�������ǣ�����������⺯�������˻����ͬ���Ҳ�����ͬ�ĺ�����
+此时发生覆盖，派生类的虚拟函数覆盖了基类的同名且参数相同的函数，由指针指向的内存空间的类型进行调用。
 int f(int a){return 0;}
 int f(char a){return 0;}
-��ʱf�����������أ����������ݴ��ݲ����Ĳ�ͬ����������������
+此时f函数构成重载，编译器根据传递参数的不同来调用两个函数。
 
-45.	ʲô�Ƕ�̬��
-�𣺶�̬��һ������ʱ�󶨻���(run-time binding) ��ͨ�����ֻ��ƣ�ʵ�ֽ��������󶨵���������ʵ�ִ����Ŀ�ġ�
+45.	什么是多态？
+答：多态是一种运行时绑定机制(run-time binding) ，通过这种机制，实现将函数名绑定到函数具体实现代码的目的。
 
-46.	ʲô����Ƭ(Slicing)��
-��:��Ƭ�ǵ�������󿽱����������ʱ�����������ֻ���ڸ����ж���ĳ�Ա������������κ������еĳ�Ա��
+46.	什么是切片(Slicing)？
+答:切片是当子类对象拷贝到父类对象时，父类对象中只存在父类中定义的成员，而不会出现任何子类中的成员。
 
-47.	ʹ���쳣�������Ƶĺô���ʲô��
-��(1)������������������ķ���
-	(2)�ڵ���ջ�д����쳣
-	(3)�Բ�ͬ�Ĵ������ͽ��з���
+47.	使用异常处理机制的好处是什么？
+答：(1)常规代码与错误处理代码的分离
+	(2)在调用栈中传播异常
+	(3)对不同的错误类型进行分类
 
-48.����C++�е��쳣�������ơ�Ҫ����ĳ�δ����е������쳣��Ӧ����α�д���룿
-��c++����try��catch�����쳣��������try���г����쳣����catch��ƥ����Ӧ���쳣����������ǰcatch����û��ƥ����쳣�������䣬��ת����һ���try��catch��䣬��һֱ�˻ص����������޷��������쳣������ϵͳ����terminate()������ֹ����
-�쳣���exception��specification���г��������ܻ��׳��������쳣�����͡��쳣���д�ں������βα�֮��Ĺؼ���throw֮�����һ��Բ������ס���쳣�����б����磺
+48.简述C++中的异常处理机制。要捕获某段代码中的所有异常，应该如何编写代码？
+答：c++中用try与catch进行异常处理，当try块中出现异常，则到catch中匹配相应的异常处理，若当前catch块中没有匹配该异常对象的语句，则转向外一层的try、catch语句，若一直退回到主函数都无法处理该异常，则由系统调用terminate()函数终止程序。
+异常规格（exception　specification）列出函数可能会抛出的所有异常的类型。异常规格写在函数的形参表之后的关键字throw之后跟着一对圆括号括住的异常类型列表，如：
 void foo(int) throw(bad_alloc, invalid_argument)
 {
-/*������*/
+/*函数体*/
 }
 
-49.�ֱ����˵�������㷨����ĺ���ģ����������ݳ������ģ�塣
-��
-template <class myType>
-myType GetMax (myType a, myType b) {
- return (a>b?a:b);
+49.分别举例说明用于算法抽象的函数模板和用于数据抽象的类模板。
+答：
+template <typename myType>
+myType GetMax (myType a, myType b)
+{
+    return (a>b?a:b);
 }
-�ú���ģ����Է���a��b�нϴ��һ����
+该函数模板可以返回a，b中较大的一个。
 template <class Elem> class Array {
         Elem* data;
         int size;
@@ -361,10 +365,36 @@ template <class Elem> class Array {
         int GetSize();
         Elem& operator[]( int idx );
 };
-������һ���������ģ�岢������Ӧ�Ĺ��ܡ�
+定义了一个数组的类模板并声明相应的功能。
+template <class Elem> class Array
+{
+private:
+    Elem* data;
+    int size;
+public:
+    Array( int sz ):size(sz)
+    {
+        data=new Elem[size];
+    }
+    int GetSize()
+    {
+        return size;
+    }
+    Elem& operator[]( int idx )
+    {
+        return data[idx];
+    }
+};
+int main()
+{
+    Array<int> a(3);
+    a[0]=1;
+    cout<<a[0];
+    return 0;
+}
 
-50.	dynamic-cast��������ʲô���Ծ���˵����
-��dynamic_cast��Ҫ�����ڼ̳���ϵ�еİ�ȫ����ת�͡����ܰ�ȫ�ؽ�ָ������ָ��ת��Ϊָ�������ָ������ã�����֪ת�Ͷ����ɹ��Ƿ����ת��ʧ�ܻ᷵��null��ת�Ͷ���Ϊָ��ʱ�����׳��쳣��ת�Ͷ���Ϊ����ʱ����
+50.	dynamic-cast的作用是什么？试举例说明。
+答：dynamic_cast主要用来在继承体系中的安全向下转型。它能安全地将指向基类的指针转型为指向子类的指针或引用，并获知转型动作成功是否。如果转型失败会返回null（转型对象为指针时）或抛出异常（转型对象为引用时）。
 class CBase { };
  class CDerived: public CBase { };
  CBase b;
@@ -373,7 +403,7 @@ class CBase { };
  CDerived* pd;
  pb = dynamic_cast<CBase*>(&d);     // ok: derived-to-base
  pd = dynamic_cast<CDerived*>(&b);  // error: base-to-derived
-������Ϊdynamic_castֻ���ڻ�������麯��������²�����������ת��Ϊ���ࡣ
+这是因为dynamic_cast只有在基类带有虚函数的情况下才允许将基类转换为子类。
 class CBase
 {
     virtual void dummy() {}
@@ -392,19 +422,4 @@ int main ()
     pd2 = dynamic_cast<CDerived*>(pbb);
     return 0;
 }
-��������е� pd1 ��Ϊ null,�� pd2 Ϊ null��
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+上面代码中的 pd1 不为 null,而 pd2 为 null。
